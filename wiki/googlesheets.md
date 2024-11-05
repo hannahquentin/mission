@@ -10,6 +10,7 @@
    - Prénom
    - Contact
    - Montant
+   - Devise
    - Type
    - Durée
    - Message
@@ -32,6 +33,7 @@ function doPost(e) {
       firstname: sanitizeInput(data.firstname),
       contact: sanitizeInput(data.contact),
       amount: validateAmount(data.amount),
+      currency: validateCurrency(data.currency),
       type: validateType(data.type),
       duration: validateDuration(data.type, data.duration),
       message: sanitizeInput(data.message || ''),
@@ -49,6 +51,7 @@ function doPost(e) {
       sanitizedData.firstname,
       sanitizedData.contact,
       sanitizedData.amount,
+      sanitizedData.currency,
       sanitizedData.type,
       sanitizedData.duration,
       sanitizedData.message,
@@ -112,12 +115,22 @@ function validateDuration(type, duration) {
   return duration;
 }
 
+// Validate currency
+function validateCurrency(currency) {
+  const validCurrencies = ['CHF', 'EUR', 'USD', 'HKD', 'JPY'];
+  if (!validCurrencies.includes(currency)) {
+    throw new Error('Invalid currency');
+  }
+  return currency;
+}
+
 // Verify all required fields are present and valid
 function isValidData(data) {
   return data.name && 
          data.firstname && 
          data.contact && 
          data.amount && 
+         data.currency &&
          data.type &&
          typeof data.message === 'string';
 }

@@ -163,7 +163,7 @@
                         <label for="contact">Email or Phone</label>
                         <input type="text" id="contact" name="contact" required>
                         
-                        <label for="amount">Amount (CHF)</label>
+                        <label for="amount">Amount (USD)</label>
                         <input type="number" id="amount" name="amount" required>
                         
                         <label for="type">Donation Type</label>
@@ -210,6 +210,7 @@
                 firstname: document.getElementById("firstname").value,
                 contact: document.getElementById("contact").value,
                 amount: document.getElementById("amount").value,
+                currency: "USD",
                 type: typeSelect.value,
                 duration: typeSelect.value === "ponctuel" ? "" : durationSelect.value,
                 message: document.getElementById("message").value
