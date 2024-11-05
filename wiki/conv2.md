@@ -10,7 +10,8 @@ autres:
 ajouter un champ "message" pour faire un petit coucou?
 
 Quand on est en fr, on montre les infos bancaires à Q, quand on est en cantonais, à H
-
+Faire la section en haut selon schema Krita
+Faire un html par langue
 
 
 

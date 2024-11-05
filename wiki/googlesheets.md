@@ -12,6 +12,7 @@
    - Montant
    - Type
    - Durée
+   - Message
    - Date
 
 ## 2. Configuration de Google Apps Script
@@ -33,6 +34,7 @@ function doPost(e) {
       amount: validateAmount(data.amount),
       type: validateType(data.type),
       duration: validateDuration(data.type, data.duration),
+      message: sanitizeInput(data.message || ''),
       date: new Date().toLocaleDateString()
     };
 
@@ -49,6 +51,7 @@ function doPost(e) {
       sanitizedData.amount,
       sanitizedData.type,
       sanitizedData.duration,
+      sanitizedData.message,
       sanitizedData.date
     ]);
 
@@ -115,7 +118,8 @@ function isValidData(data) {
          data.firstname && 
          data.contact && 
          data.amount && 
-         data.type;
+         data.type &&
+         typeof data.message === 'string';
 }
 ```
 
@@ -195,6 +199,7 @@ function sendNotification(data) {
     Montant : ${data.amount} CHF
     Type : ${data.type}
     Durée : ${data.duration}
+    Message : ${data.message || 'Aucun message'}
   `;
   
   MailApp.sendEmail(email, subject, message);
