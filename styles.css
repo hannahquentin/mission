@@ -223,15 +223,6 @@ h2 {
     white-space: nowrap;
 }
 
-.bank-details img {
-    margin-bottom: 12px;
-    line-height: 1.4;
-    color: var(--color-text);
-    font-size: 0.95em;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-}
 
 .bank-details p:last-child {
     margin-bottom: 0;
