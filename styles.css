@@ -223,6 +223,12 @@ h2 {
     white-space: nowrap;
 }
 
+.wise-img {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+}
 
 .bank-details p:last-child {
     margin-bottom: 0;
